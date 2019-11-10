@@ -58,12 +58,6 @@
     <Compile Include="AddDeviceForm.Designer.cs">
       <DependentUpon>AddDeviceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddSensorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddSensorForm.Designer.cs">
-      <DependentUpon>AddSensorForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="SetGrowingPlantForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,9 +68,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddDeviceForm.resx">
       <DependentUpon>AddDeviceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddSensorForm.resx">
-      <DependentUpon>AddSensorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
