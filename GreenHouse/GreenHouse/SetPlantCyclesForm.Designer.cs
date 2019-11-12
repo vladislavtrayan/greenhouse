@@ -30,8 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,6 +46,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.textBox26 = new System.Windows.Forms.TextBox();
             this.textBox27 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -120,59 +121,8 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(386, 397);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Цикл 1";
+            this.tabPage1.Text = "Стадия 1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.textBox10);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.textBox11);
-            this.tabPage2.Controls.Add(this.textBox12);
-            this.tabPage2.Controls.Add(this.textBox13);
-            this.tabPage2.Controls.Add(this.textBox14);
-            this.tabPage2.Controls.Add(this.textBox15);
-            this.tabPage2.Controls.Add(this.textBox16);
-            this.tabPage2.Controls.Add(this.textBox17);
-            this.tabPage2.Controls.Add(this.textBox18);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(386, 397);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Цикл 2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.textBox19);
-            this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Controls.Add(this.label17);
-            this.tabPage3.Controls.Add(this.label18);
-            this.tabPage3.Controls.Add(this.label19);
-            this.tabPage3.Controls.Add(this.label20);
-            this.tabPage3.Controls.Add(this.label21);
-            this.tabPage3.Controls.Add(this.textBox20);
-            this.tabPage3.Controls.Add(this.textBox21);
-            this.tabPage3.Controls.Add(this.textBox22);
-            this.tabPage3.Controls.Add(this.textBox23);
-            this.tabPage3.Controls.Add(this.textBox24);
-            this.tabPage3.Controls.Add(this.textBox25);
-            this.tabPage3.Controls.Add(this.textBox26);
-            this.tabPage3.Controls.Add(this.textBox27);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(386, 397);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Цикл 3";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -184,11 +134,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(110, 24);
+            this.label7.Location = new System.Drawing.Point(99, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 17);
+            this.label7.Size = new System.Drawing.Size(187, 17);
             this.label7.TabIndex = 45;
-            this.label7.Text = "Количество дней в цикле";
+            this.label7.Text = "Количество суток в стадии";
             // 
             // label6
             // 
@@ -300,6 +250,32 @@
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 31;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.textBox10);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.textBox11);
+            this.tabPage2.Controls.Add(this.textBox12);
+            this.tabPage2.Controls.Add(this.textBox13);
+            this.tabPage2.Controls.Add(this.textBox14);
+            this.tabPage2.Controls.Add(this.textBox15);
+            this.tabPage2.Controls.Add(this.textBox16);
+            this.tabPage2.Controls.Add(this.textBox17);
+            this.tabPage2.Controls.Add(this.textBox18);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(386, 397);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Стадия 2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(136, 54);
@@ -311,11 +287,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(106, 24);
+            this.label8.Location = new System.Drawing.Point(92, 24);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(176, 17);
+            this.label8.Size = new System.Drawing.Size(187, 17);
             this.label8.TabIndex = 45;
-            this.label8.Text = "Количество дней в цикле";
+            this.label8.Text = "Количество суток в стадии";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
@@ -442,6 +418,31 @@
             this.textBox18.TabIndex = 31;
             this.textBox18.TextChanged += new System.EventHandler(this.textBox18_TextChanged);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.textBox19);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.label21);
+            this.tabPage3.Controls.Add(this.textBox20);
+            this.tabPage3.Controls.Add(this.textBox21);
+            this.tabPage3.Controls.Add(this.textBox22);
+            this.tabPage3.Controls.Add(this.textBox23);
+            this.tabPage3.Controls.Add(this.textBox24);
+            this.tabPage3.Controls.Add(this.textBox25);
+            this.tabPage3.Controls.Add(this.textBox26);
+            this.tabPage3.Controls.Add(this.textBox27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(386, 397);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Стадия 3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // textBox19
             // 
             this.textBox19.Location = new System.Drawing.Point(138, 58);
@@ -452,11 +453,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(108, 28);
+            this.label15.Location = new System.Drawing.Point(94, 24);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(176, 17);
+            this.label15.Size = new System.Drawing.Size(187, 17);
             this.label15.TabIndex = 45;
-            this.label15.Text = "Количество дней в цикле";
+            this.label15.Text = "Количество суток в стадии";
             // 
             // label16
             // 
@@ -568,14 +569,24 @@
             this.textBox27.Size = new System.Drawing.Size(100, 22);
             this.textBox27.TabIndex = 31;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(172, 453);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Далее";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // SetPlantCyclesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 443);
+            this.ClientSize = new System.Drawing.Size(416, 497);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Name = "SetPlantCyclesForm";
-            this.Text = "Настройка циклов выращивания культуры";
+            this.Text = "Настройка стадий выращивания культуры";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -641,5 +652,6 @@
         private System.Windows.Forms.TextBox textBox25;
         private System.Windows.Forms.TextBox textBox26;
         private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.Button button1;
     }
 }

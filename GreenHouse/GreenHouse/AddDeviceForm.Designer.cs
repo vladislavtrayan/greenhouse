@@ -41,24 +41,24 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 11);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Фильтры :";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(17, 50);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkBox1.Location = new System.Drawing.Point(15, 40);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(100, 24);
+            this.checkBox1.Size = new System.Drawing.Size(87, 21);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Датчики";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -69,19 +69,17 @@
             this.checkedListBox1.Items.AddRange(new object[] {
             "Активные",
             "Пассивные"});
-            this.checkedListBox1.Location = new System.Drawing.Point(38, 84);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkedListBox1.Location = new System.Drawing.Point(34, 67);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(185, 67);
+            this.checkedListBox1.Size = new System.Drawing.Size(165, 38);
             this.checkedListBox1.TabIndex = 3;
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(17, 160);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkBox2.Location = new System.Drawing.Point(15, 128);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(200, 24);
+            this.checkBox2.Size = new System.Drawing.Size(175, 21);
             this.checkBox2.TabIndex = 4;
             this.checkBox2.Text = "Другое оборудование";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -99,26 +97,34 @@
             listViewItem6,
             listViewItem7,
             listViewItem8});
-            this.listView1.Location = new System.Drawing.Point(298, 15);
-            this.listView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listView1.Location = new System.Drawing.Point(265, 12);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(588, 532);
+            this.listView1.Size = new System.Drawing.Size(523, 413);
             this.listView1.TabIndex = 5;
             this.listView1.TileSize = new System.Drawing.Size(1, 1);
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(70, 402);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Выбрать";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // AddDeviceForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 562);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddDeviceForm";
             this.Text = "Доступное электрооборудование";
             this.ResumeLayout(false);
@@ -133,5 +139,6 @@
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button button1;
     }
 }

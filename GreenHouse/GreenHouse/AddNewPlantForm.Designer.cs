@@ -46,11 +46,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(94, 170);
+            this.label7.Location = new System.Drawing.Point(46, 170);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 17);
+            this.label7.Size = new System.Drawing.Size(231, 17);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Количество циклов";
+            this.label7.Text = "Количество стадий выращивания";
             // 
             // comboBox1
             // 
