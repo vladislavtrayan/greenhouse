@@ -30,8 +30,8 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -46,41 +46,36 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(46, 170);
+            this.label7.Location = new System.Drawing.Point(59, 100);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(231, 17);
+            this.label7.Size = new System.Drawing.Size(217, 17);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Количество стадий выращивания";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.comboBox1.Location = new System.Drawing.Point(133, 203);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(55, 24);
-            this.comboBox1.TabIndex = 16;
-            this.comboBox1.Text = "3";
+            this.label7.Text = "Количество дней выращивания";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(122, 334);
+            this.button1.Location = new System.Drawing.Point(123, 199);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 27);
             this.button1.TabIndex = 17;
             this.button1.Text = "Далее";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(113, 120);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 18;
+            // 
             // AddNewPlantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 397);
+            this.ClientSize = new System.Drawing.Size(339, 245);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Name = "AddNewPlantForm";
@@ -94,7 +89,7 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

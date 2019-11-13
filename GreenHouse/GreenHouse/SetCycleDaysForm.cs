@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GreenHouse
 {
-    public partial class SetPlantCyclesForm : Form
+    public partial class SetCycleDaysForm : Form
     {
-        public SetPlantCyclesForm()
+        public SetCycleDaysForm()
         {
             InitializeComponent();
         }

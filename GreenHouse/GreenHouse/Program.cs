@@ -16,7 +16,7 @@ namespace GreenHouse
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddNewPlantForm());
+            Application.Run(new SetCycleDaysForm());
         }
     }
 }
