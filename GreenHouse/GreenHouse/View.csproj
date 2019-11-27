@@ -33,7 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.2\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -78,11 +89,11 @@
     <Compile Include="SetCycleDaysForm.Designer.cs">
       <DependentUpon>SetCycleDaysForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SetSensorsChedule.cs">
+    <Compile Include="SetSensorsShedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SetSensorsChedule.Designer.cs">
-      <DependentUpon>SetSensorsChedule.cs</DependentUpon>
+    <Compile Include="SetSensorsShedule.Designer.cs">
+      <DependentUpon>SetSensorsShedule.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddDeviceForm.resx">
       <DependentUpon>AddDeviceForm.cs</DependentUpon>
@@ -108,9 +119,10 @@
     <EmbeddedResource Include="SetCycleDaysForm.resx">
       <DependentUpon>SetCycleDaysForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SetSensorsChedule.resx">
-      <DependentUpon>SetSensorsChedule.cs</DependentUpon>
+    <EmbeddedResource Include="SetSensorsShedule.resx">
+      <DependentUpon>SetSensorsShedule.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,6 +135,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{041211b3-f77d-4c45-8d3d-d92f1937a485}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation\Presentation.csproj">
+      <Project>{1f9f1a54-d34d-4e91-a665-550479b73d6f}</Project>
+      <Name>Presentation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,6 @@
 ﻿namespace GreenHouse
 {
-    partial class SetSensorsChedule
+    partial class SetSensorsShedule
     {
         /// <summary>
         /// Required designer variable.

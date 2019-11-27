@@ -7,15 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Presentation.Forms;
 
 namespace GreenHouse
 {
-    public partial class SetCycleDaysForm : Form
+    public partial class SetCycleDaysForm : Form,ISetCycleDaysForm
     {
+        public int SelectedItemId => listView1.SelectedIndices[0];
+
         public SetCycleDaysForm()
         {
             InitializeComponent();
-        }
+            listView1.MouseDoubleClick += new MouseEventHandler(listView1_MouseDoubleClick);
+        }  
+
+        public event Action Save;
+        public event Action SetSensorsSchedule;
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -105,6 +113,25 @@ namespace GreenHouse
         private void textBox18_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void SetCycleDaysForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Save?.Invoke();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            SetSensorsSchedule?.Invoke();
         }
     }
 }

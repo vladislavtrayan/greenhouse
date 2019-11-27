@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("датчик температуры");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("датчик влаги");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("пассивный датчик температуры ");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("активный датчик влаги");
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("датчик кислотности");
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("датчик освещенности");
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("обогреватель");
@@ -71,7 +71,7 @@
             "Пассивные"});
             this.checkedListBox1.Location = new System.Drawing.Point(34, 67);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(165, 38);
+            this.checkedListBox1.Size = new System.Drawing.Size(165, 55);
             this.checkedListBox1.TabIndex = 3;
             // 
             // checkBox2
@@ -88,6 +88,9 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
+            listViewItem1.Tag = "passive";
+            listViewItem2.Tag = "active";
+            listViewItem5.Tag = "device";
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -127,6 +130,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddDeviceForm";
             this.Text = "Доступное электрооборудование";
+            this.Load += new System.EventHandler(this.AddDeviceForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

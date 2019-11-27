@@ -42,9 +42,10 @@
             "влад",
             "ввеква",
             "папа"});
-            this.comboBox1.Location = new System.Drawing.Point(28, 27);
+            this.comboBox1.Location = new System.Drawing.Point(25, 22);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(334, 28);
+            this.comboBox1.Size = new System.Drawing.Size(297, 24);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.Text = "Выбрать выращиваемую культуру";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -52,18 +53,21 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Location = new System.Drawing.Point(28, 74);
+            this.button1.Location = new System.Drawing.Point(25, 59);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 39);
+            this.button1.Size = new System.Drawing.Size(81, 31);
             this.button1.TabIndex = 1;
             this.button1.Text = "Принять";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(186, 74);
+            this.button2.Location = new System.Drawing.Point(165, 59);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 39);
+            this.button2.Size = new System.Drawing.Size(156, 31);
             this.button2.TabIndex = 2;
             this.button2.Text = "Новая культура";
             this.button2.UseVisualStyleBackColor = true;
@@ -71,15 +75,15 @@
             // 
             // SetGrowingPlantForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 148);
+            this.ClientSize = new System.Drawing.Size(348, 118);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SetGrowingPlantForm";
             this.Text = "Выбор выращиваемой культуры";
+            this.Load += new System.EventHandler(this.SetGrowingPlantForm_Load);
             this.ResumeLayout(false);
 
         }

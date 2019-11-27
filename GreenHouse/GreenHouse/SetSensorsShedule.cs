@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Presentation.Forms;
 
 namespace GreenHouse
 {
-    public partial class SetSensorsChedule : Form
+    public partial class SetSensorsShedule : Form,ISetSensorsSchedule
     {
-        public SetSensorsChedule()
+        public SetSensorsShedule()
         {
             InitializeComponent();
         }

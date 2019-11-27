@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenHouse", "GreenHouse\GreenHouse.csproj", "{2463625E-BAD9-4218-BB2D-E49D9EC0E16B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "GreenHouse\View.csproj", "{2463625E-BAD9-4218-BB2D-E49D9EC0E16B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{041211B3-F77D-4C45-8D3D-D92F1937A485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{1F9F1A54-D34D-4E91-A665-550479B73D6F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{041211B3-F77D-4C45-8D3D-D92F1937A485} = {041211B3-F77D-4C45-8D3D-D92F1937A485}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,14 @@ Global
 		{2463625E-BAD9-4218-BB2D-E49D9EC0E16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2463625E-BAD9-4218-BB2D-E49D9EC0E16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2463625E-BAD9-4218-BB2D-E49D9EC0E16B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{041211B3-F77D-4C45-8D3D-D92F1937A485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041211B3-F77D-4C45-8D3D-D92F1937A485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041211B3-F77D-4C45-8D3D-D92F1937A485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041211B3-F77D-4C45-8D3D-D92F1937A485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F9F1A54-D34D-4E91-A665-550479B73D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9F1A54-D34D-4E91-A665-550479B73D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9F1A54-D34D-4E91-A665-550479B73D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9F1A54-D34D-4E91-A665-550479B73D6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
