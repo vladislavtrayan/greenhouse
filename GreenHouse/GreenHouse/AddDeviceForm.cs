@@ -41,7 +41,7 @@ namespace GreenHouse
 
         private void listView1_MouseDoubleClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            AddDevice?.Invoke();
         }
     }
 }
