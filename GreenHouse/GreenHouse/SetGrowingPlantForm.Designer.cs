@@ -31,6 +31,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -73,11 +74,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(100, 105);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // SetGrowingPlantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 118);
+            this.ClientSize = new System.Drawing.Size(348, 138);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
@@ -85,6 +97,7 @@
             this.Text = "Выбор выращиваемой культуры";
             this.Load += new System.EventHandler(this.SetGrowingPlantForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -93,5 +106,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
     }
 }

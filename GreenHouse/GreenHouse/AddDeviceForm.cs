@@ -43,5 +43,10 @@ namespace GreenHouse
         {
             AddDevice?.Invoke();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

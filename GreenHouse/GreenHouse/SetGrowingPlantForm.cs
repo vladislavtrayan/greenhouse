@@ -42,5 +42,15 @@ namespace GreenHouse
         {
             Accept?.Invoke();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ShowError(string message)
+        {
+            label1.Text = message;
+        }
     }
 }

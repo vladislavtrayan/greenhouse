@@ -13,10 +13,17 @@ namespace GreenHouse
 {
     public partial class SetSensorsShedule : Form,ISetSensorsSchedule
     {
+        Action action;
+
         public SetSensorsShedule()
         {
             InitializeComponent();
+            
+            textBox3.TextChanged += FieldUpdated;
+            this.FormClosed += new FormClosedEventHandler(SetSensorsScheduleFormClosed);
         }
+
+        public string LightSensorOptimalValue => textBox3.Text;
 
         private void SetSensorsChedule_Load(object sender, EventArgs e)
         {
@@ -26,6 +33,17 @@ namespace GreenHouse
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FieldUpdated(object sender, EventArgs e)
+        {
+            action?.Invoke();
+            // Add and verify new info in service
+        }
+
+        void SetSensorsScheduleFormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Save all form fields
         }
     }
 }

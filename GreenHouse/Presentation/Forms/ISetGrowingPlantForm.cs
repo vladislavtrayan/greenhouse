@@ -12,5 +12,7 @@ namespace Presentation.Forms
         event Action AddNewPlant;
 
         string PlantName { get; set; }
+
+        void ShowError(string message);
     }
 }
