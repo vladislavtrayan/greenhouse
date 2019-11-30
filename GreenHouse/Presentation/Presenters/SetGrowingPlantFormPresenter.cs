@@ -27,12 +27,14 @@ namespace Presentation.Presenter
             var view = _view as ISetGrowingPlantForm;
             try
             {
+                // Will be added with service logic
+                throw new NotImplementedException();
                 service.GrowingPlantName = view.PlantName;
                 _view.Close();
             }
             catch
             {
-
+                view.ShowError("Введено не верное значение");
             }
         }
         private void AddNewPlant()

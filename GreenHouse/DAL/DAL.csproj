@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CultureRepository.cs" />
+    <Compile Include="Repository\PlantRepository.cs" />
     <Compile Include="Repository\IPlantRepository.cs" />
     <Compile Include="Repository\IImageRepository.cs" />
     <Compile Include="Repository\ImageRepository.cs" />

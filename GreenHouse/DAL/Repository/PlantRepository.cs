@@ -7,7 +7,7 @@ using Model.Entity;
 
 namespace DAL.Repository
 {
-    public class CultureRepository : IPlantRepository
+    public class PlantRepository : IPlantRepository
     {
         public int Add(Plant obj)
         {

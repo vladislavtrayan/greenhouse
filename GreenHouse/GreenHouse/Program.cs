@@ -11,6 +11,7 @@ using Ninject.Modules;
 using Ninject.Extensions.Factory;
 using Model.Service;
 using Model;
+using DAL.Repository;
 
 namespace GreenHouse
 {
@@ -26,6 +27,9 @@ namespace GreenHouse
             kernel.Bind<ApplicationContext>().ToConstant(new ApplicationContext());
 
             kernel.Bind<IServiceFactory>().ToFactory();
+
+            kernel.Bind<IImageRepository>().To<ImageRepository>();
+            kernel.Bind<IPlantRepository>().To<PlantRepository>();
 
             kernel.Bind<IAddNewPlantForm>().To<AddNewPlantForm>();
             kernel.Bind<IAddDeviceForm>().To<AddDeviceForm>();

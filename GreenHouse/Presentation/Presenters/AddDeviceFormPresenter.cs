@@ -17,6 +17,12 @@ namespace Presentation.Presenter
             _service = serviceFactory.CreateAddNewDeviceService();
             _view = view;
 
+            (_view as IAddDeviceForm).AddDevice += () => AddDevice();
+        }
+
+        public void AddDevice()
+        {
+            throw new NotImplementedException();
         }
     }
 }
