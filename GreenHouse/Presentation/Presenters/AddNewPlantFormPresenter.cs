@@ -10,33 +10,28 @@ using Presentation.Forms;
 
 namespace Presentation.Presenter
 {
-    public class AddNewPlantFormPresenter : AbstractPresenter
+    public class AddNewPlantFormPresenter : AbstractPresenter<IAddNewPlantForm>
     {
-        public AddNewPlantFormPresenter(IKernel kernel, IServiceFactory serviceFactory, IAddNewPlantForm view)
+        public AddNewPlantFormPresenter(IKernel kernel, IServiceFactory serviceFactory, IAddNewPlantForm view) : base(kernel, serviceFactory, view)
         {
-            _kernel = kernel;
-            _service = serviceFactory.CreateAddNewPlantService();
-            _view = view;
-
-            (_view as IAddNewPlantForm).Next += () => Next();
+            _view.Next += () => Next();
         }
 
         private void Next()
         {
-            var view = _view as IAddNewPlantForm;
-            var service = _service as IAddNewPlantService;
+            var service = _serviceFactory.CreateAddNewPlantService();
 
             try
             {
-                int.TryParse(view.NumberOfDaysInCycle, out int numberOfDaysInCycle);
+                int.TryParse(_view.NumberOfDaysInCycle, out int numberOfDaysInCycle);
                 service.NumberOfDaysInCycle = numberOfDaysInCycle;
-                service.PlantName = view.PlantName;
+                service.PlantName = _view.PlantName;
                 _kernel.Get<SetCycleDaysFormPresenter>().Run();
                 _view.Close();
             }
             catch
             {
-                view.ShowError("Введено некорректное значение");
+                _view.ShowError("Введено некорректное значение");
             }
         }
     }

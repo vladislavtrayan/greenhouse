@@ -10,9 +10,11 @@ namespace Presentation.Forms
     {
         event Action Accept;
         event Action AddNewPlant;
+        event Action UpdatePlantList;
 
         string PlantName { get; set; }
 
         void ShowError(string message);
+        void UpdateAvailablePlants(List<string> plants);
     }
 }

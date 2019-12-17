@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
 using Model.Entity;
 
 namespace DAL.Repository
 {
-    public class PlantRepository : IPlantRepository
+    public class PlantRepository : IRepository<Plant>
     {
+        List<Plant> _data = new List<Plant>();
+        private int _end_index = 0;
+
         public int Add(Plant obj)
         {
-            throw new NotImplementedException();
+            _data.Add(obj);
+            _end_index++;
+            return _end_index;
         }
 
         public Plant Find(int id)
@@ -21,7 +27,7 @@ namespace DAL.Repository
 
         public List<Plant> GetAll()
         {
-            throw new NotImplementedException();
+            return _data;
         }
 
         public void Remove(int id)

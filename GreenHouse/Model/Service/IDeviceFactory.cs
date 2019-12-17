@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Model.Service
 {
-    public interface IAddNewDeviceService : IService
+    public interface IDeviceFactory
     {
-        List<UIElement> GetUIElements();
+        IDevice CreateDevice(DeviceType deviceType);
+        IDevice CreateDevice(DeviceType deviceType,int index);
     }
 }

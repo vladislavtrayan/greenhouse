@@ -12,6 +12,8 @@ using Ninject.Extensions.Factory;
 using Model.Service;
 using Model;
 using DAL.Repository;
+using Model.Entity;
+using EnvironmentModulation;
 
 namespace GreenHouse
 {
@@ -26,10 +28,10 @@ namespace GreenHouse
             Ninject.StandardKernel kernel = new StandardKernel();
             kernel.Bind<ApplicationContext>().ToConstant(new ApplicationContext());
 
+            kernel.Bind<ITimer>().To<WinFormTimer>();
+
             kernel.Bind<IServiceFactory>().ToFactory();
 
-            kernel.Bind<IImageRepository>().To<ImageRepository>();
-            kernel.Bind<IPlantRepository>().To<PlantRepository>();
 
             kernel.Bind<IAddNewPlantForm>().To<AddNewPlantForm>();
             kernel.Bind<IAddDeviceForm>().To<AddDeviceForm>();
@@ -45,6 +47,10 @@ namespace GreenHouse
             kernel.Bind<IAddNewDeviceService>().To<AddNewDeviceService>().InSingletonScope();
             kernel.Bind<ISetGrowingPlantService>().To<SetGrowingPlantService>().InSingletonScope();
             kernel.Bind<IAddNewPlantService>().To<AddNewPlantService>().InSingletonScope();
+            kernel.Bind<IDeviceFactory>().To<DeviceFactory>();
+
+            kernel.Bind<IRepository<UIElement>>().To<ImageRepository>().InSingletonScope();
+            kernel.Bind<IRepository<Plant>>().To<PlantRepository>().InSingletonScope();
 
             kernel.Bind<AddNewPlantFormPresenter>().ToSelf();
             kernel.Bind<AddDeviceFormPresenter>().ToSelf();
@@ -54,7 +60,11 @@ namespace GreenHouse
             kernel.Bind<MainFormPresenter>().ToSelf();
 
 
-
+            kernel.Bind<Device>().ToSelf();
+            kernel.Bind<ActiveSensor>().ToSelf();
+            kernel.Bind<PassiveSensor>().ToSelf();
+            
+            kernel.Bind<IEnvironment>().To<EnvironmentModulation.Environment>().InSingletonScope();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -62,5 +72,8 @@ namespace GreenHouse
             kernel.Get<MainFormPresenter>().Run();
             Application.Run(kernel.Get<ApplicationContext>());
         }
+
+        // Wrapper around system timer to pass it as ITimer implementer
+        internal class WinFormTimer : System.Windows.Forms.Timer, ITimer { }
     }
 }

@@ -15,6 +15,20 @@ namespace GreenHouse
     {
         public int SelectedItemId => listView1.SelectedIndices[0];
 
+        private int _amountOfDays ;
+        public int AmountOfDays 
+        {
+            get { return _amountOfDays; } 
+            set {
+                _amountOfDays = value;
+                listView1.Items.Clear();
+                for (int i = 1; i <= _amountOfDays; i++)
+                {
+                    listView1.Items.Add(i.ToString());
+                }
+            } 
+        }
+
         public SetCycleDaysForm()
         {
             InitializeComponent();

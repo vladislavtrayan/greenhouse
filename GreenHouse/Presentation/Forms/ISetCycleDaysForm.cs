@@ -12,5 +12,6 @@ namespace Presentation.Forms
         event Action SetSensorsSchedule;
 
         int SelectedItemId { get; }
+        int AmountOfDays { get; set; }
     }
 }

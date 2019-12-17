@@ -31,8 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,20 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\ActiveSensor.cs" />
     <Compile Include="Entity\DaySchedule.cs" />
     <Compile Include="Entity\Device.cs" />
     <Compile Include="Entity\EntityBase.cs" />
-    <Compile Include="Entity\Image.cs" />
+    <Compile Include="Entity\IDevice.cs" />
+    <Compile Include="Entity\PassiveSensor.cs" />
     <Compile Include="Entity\Plant.cs" />
     <Compile Include="Entity\Sensor.cs" />
+    <Compile Include="Entity\Time.cs" />
+    <Compile Include="Entity\UIElement.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="IServiceFactory.cs" />
+    <Compile Include="ITimer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AddNewDeviceService.cs" />
     <Compile Include="Service\AddNewPlantService.cs" />
+    <Compile Include="Service\DeviceFactory.cs" />
     <Compile Include="Service\IAddNewDeviceService.cs" />
     <Compile Include="Service\IAddNewPlantService.cs" />
+    <Compile Include="Service\IDeviceFactory.cs" />
     <Compile Include="Service\IMainFormService.cs" />
     <Compile Include="Service\ISetCycleDaysService.cs" />
     <Compile Include="Service\ISetGrowingPlantService.cs" />
@@ -64,6 +76,14 @@
     <Compile Include="Service\SetGrowingPlantService.cs" />
     <Compile Include="Service\SetSensorsScheduleService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EnvironmentModulation\EnvironmentModulation.csproj">
+      <Project>{829F9B4F-E7B6-4B7A-A782-0269514C40EF}</Project>
+      <Name>EnvironmentModulation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

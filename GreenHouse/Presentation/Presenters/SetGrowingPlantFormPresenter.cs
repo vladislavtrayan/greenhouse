@@ -10,31 +10,29 @@ using Presentation.Forms;
 
 namespace Presentation.Presenter
 {
-    public class SetGrowingPlantFormPresenter : AbstractPresenter
+    public class SetGrowingPlantFormPresenter : AbstractPresenter<ISetGrowingPlantForm>
     {
-        public SetGrowingPlantFormPresenter(IKernel kernel, IServiceFactory serviceFactory, ISetGrowingPlantForm view)
+        public SetGrowingPlantFormPresenter(IKernel kernel, IServiceFactory serviceFactory, ISetGrowingPlantForm view) : base(kernel,serviceFactory,view)
         {
-            _kernel = kernel;
-            _service = serviceFactory.CreateSetGrowingPlantService();
-            _view = view;
-            (_view as ISetGrowingPlantForm).Accept += () => Accept();
-            (_view as ISetGrowingPlantForm).AddNewPlant += () => AddNewPlant();
+            _view.Accept += () => Accept();
+            _view.AddNewPlant += () => AddNewPlant();
+            _view.UpdatePlantList += () => UpdatePlantList(); 
+
+            //_serviceFactory.CreateSetCycleDaysService().NewPlantWasAdded += () => UpdatePlantList();
         }
 
         private void Accept()
         {
-            var service = _service as ISetGrowingPlantService;
-            var view = _view as ISetGrowingPlantForm;
+            var service = _serviceFactory.CreateSetGrowingPlantService();
             try
             {
-                // Will be added with service logic
-                throw new NotImplementedException();
-                service.GrowingPlantName = view.PlantName;
+                service.GrowingPlantName = _view.PlantName;
+                _serviceFactory.CreateMainFormService().GrowingPlant = service.GrowingPlant;
                 _view.Close();
             }
             catch
             {
-                view.ShowError("Введено не верное значение");
+                _view.ShowError("Введено не верное значение");
             }
         }
         private void AddNewPlant()
@@ -43,5 +41,9 @@ namespace Presentation.Presenter
             _view.Close();
         }
 
+        private void UpdatePlantList()
+        {
+            _view.UpdateAvailablePlants(_serviceFactory.CreateSetGrowingPlantService().GetAllPlantTitles());
+        }
     }
 }

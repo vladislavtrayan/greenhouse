@@ -20,10 +20,12 @@ namespace GreenHouse
 
         private void SetGrowingPlantForm_Load(object sender, EventArgs e)
         {
-
+            UpdatePlantList?.Invoke();
         }
+        
         public event Action Accept;
         public event Action AddNewPlant;
+        public event Action UpdatePlantList;
 
         public string PlantName { get; set; }
 
@@ -52,5 +54,13 @@ namespace GreenHouse
         {
             label1.Text = message;
         }
+
+        public void UpdateAvailablePlants(List<string> plants)
+        {
+            comboBox1.Items.Clear();
+            foreach (var item in plants)
+                comboBox1.Items.Add(item);
+        }
+
     }
 }
