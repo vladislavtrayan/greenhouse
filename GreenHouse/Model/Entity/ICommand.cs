@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model.Entity
 {
-    public interface IDevice
+    public interface ICommand
     {
-        Position Position { get; set; }
+        void Run(Position position,double value);
+        void Stop(Position position);
     }
 }

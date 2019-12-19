@@ -24,5 +24,6 @@ namespace Presentation.Forms
         void SetBasicCursor();
         void SetDraggingCursor();
         void SetDateAndTime(int day, Time time);
+        void UpdateProgressBar(int percent);
     }
 }

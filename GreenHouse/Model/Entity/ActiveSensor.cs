@@ -25,7 +25,7 @@ namespace Model.Entity
 
         }
 
-        public ActiveSensor(IEnvironment environment) : base(environment)
+        public ActiveSensor(IEnvironment environment,ITimer timer) : base(environment,timer)
         {
 
         }

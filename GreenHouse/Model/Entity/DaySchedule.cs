@@ -3,11 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EnvironmentModulation.Environment;
 
 namespace Model.Entity
 {
     public class DaySchedule
     {
+        public SensorSchedule this[Area area]
+        {
+            get 
+            {
+                var sensorSchedule = new SensorSchedule();
+                switch (area)
+                {
+                    case Area.AirTemperature:
+                        sensorSchedule.MaxDeviation = double.Parse(AirTempretureSensorMaxDeviation);
+                        sensorSchedule.OptimalValue = double.Parse(AirTempretureSensorOptimalValue);
+                        sensorSchedule.SensorEndTime = AirTempretureSensorEndTime;
+                        sensorSchedule.SensorStartTime = AirTempretureSensorStartTime;
+                        return sensorSchedule;
+                    case Area.Acid:
+                        sensorSchedule.MaxDeviation = double.Parse(AcidSensorMaxDeviation);
+                        sensorSchedule.OptimalValue = double.Parse(AcidSensorOptimalValue);
+                        sensorSchedule.SensorEndTime = AcidSensorEndTime;
+                        sensorSchedule.SensorStartTime = AcidSensorStartHour;
+                        return sensorSchedule;
+                    case Area.WaterTemperature:
+                        sensorSchedule.MaxDeviation = double.Parse(WaterTemperatureSensorMaxDeviation);
+                        sensorSchedule.OptimalValue = double.Parse(WaterTemperatureSensorOptimalValue);
+                        sensorSchedule.SensorEndTime = WaterTemperatureSensorEndTime;
+                        sensorSchedule.SensorStartTime = WaterTemperatureSensorStartHour;
+                        return sensorSchedule;
+                    case Area.Nutrient:
+                        sensorSchedule.MaxDeviation = double.Parse(NutrientSensorMaxDeviation);
+                        sensorSchedule.OptimalValue = double.Parse(NutrientSensorOptimalValue);
+                        sensorSchedule.SensorEndTime = NutrientSensorEndTime;
+                        sensorSchedule.SensorStartTime = NutrientSensorStartHour;
+                        return sensorSchedule;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+            set { }
+        }
+
         public int Day;
 
         public string LightSensorOptimalValue { get ; set ; }

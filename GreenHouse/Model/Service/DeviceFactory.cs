@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EnvironmentModulation.Environment;
 
 namespace Model.Service
 {
@@ -44,6 +45,30 @@ namespace Model.Service
                     return passiveSensor;
                 case DeviceType.ActiveSensor:
                     var activeSensor = _kernal.Get<ActiveSensor>();
+                    activeSensor.Id = index;
+                    return activeSensor;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        public IDevice CreateDevice(DeviceType deviceType,Area area, int index)
+        {
+            switch (deviceType)
+            {
+                case DeviceType.Device:
+                    var device = _kernal.Get<Device>();
+                    device.Area = area;
+                    device.Id = index;
+                    return device;
+                case DeviceType.PasssiveSensor:
+                    var passiveSensor = _kernal.Get<PassiveSensor>();
+                    passiveSensor.Area = area;
+                    passiveSensor.Id = index;
+                    return passiveSensor;
+                case DeviceType.ActiveSensor:
+                    var activeSensor = _kernal.Get<ActiveSensor>();
+                    activeSensor.Area = area;
                     activeSensor.Id = index;
                     return activeSensor;
                 default:

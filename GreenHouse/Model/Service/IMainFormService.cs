@@ -16,8 +16,9 @@ namespace Model.Service
         void RemoveElement(int elementId);
         void AddNewElement(UIElement uIElement);
         void RedrawAllElements();
+        void UpdateUISensorsInformation();
         void MoveElement(int xPos,int yPos);
-        void AddDevice(IDevice device);
+
 
         List<UIElement> UIElements { get; set; }
         List<PassiveSensor> PassiveSensors { get; set; }

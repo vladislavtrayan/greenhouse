@@ -15,12 +15,18 @@ namespace Model.Entity
             return _value;
         }
 
-        public void SetValue(double value)
+        private void SetValue()
         {
-            _value = value;
+            _value = (int)_environment.GetValue(Area,Position.x, Position.y);
         }
 
-        public PassiveSensor(IEnvironment environment) : base(environment)
+        public override void TimerTick(object sender, EventArgs e)
+        {
+            base.TimerTick(sender, e);
+            SetValue();
+        }
+
+        public PassiveSensor(ITimer timer,IEnvironment environment) : base(environment,timer)
         {
 
         }

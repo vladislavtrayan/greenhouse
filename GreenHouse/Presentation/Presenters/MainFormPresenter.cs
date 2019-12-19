@@ -59,12 +59,19 @@ namespace Presentation
 
         private void RedrawPictureBox()
         {
+            _serviceFactory.CreateMainFormService().UpdateUISensorsInformation();
             _view.RedrawPictureBox(_serviceFactory.CreateMainFormService().UIElements);
         }
 
         private void UpdateDateAndTime()
         {
             _view.SetDateAndTime(_serviceFactory.CreateMainFormService().CurrentDay, _serviceFactory.CreateMainFormService().CurrentTime);
+            if (_serviceFactory.CreateMainFormService().IsCycleStarted)
+            {
+                _view.UpdateProgressBar((int)(((double)_serviceFactory.CreateMainFormService().CurrentDay / (double)_serviceFactory.CreateMainFormService().GrowingPlant.GrowingPlan.Count) * 100));
+                if (((int)(((double)_serviceFactory.CreateMainFormService().CurrentDay / (double)_serviceFactory.CreateMainFormService().GrowingPlant.GrowingPlan.Count) * 100)) == 100)
+                    _serviceFactory.CreateMainFormService().IsCycleStarted = false;
+            }
         }
 
         private void MouseDragging()

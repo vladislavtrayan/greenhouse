@@ -46,9 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AcidRegulatorCommand.cs" />
+    <Compile Include="Commands\ICommandFactory.cs" />
+    <Compile Include="Commands\NutrientRegulatorCommand.cs" />
+    <Compile Include="Commands\WaterTemperatureHeaterCommand.cs" />
     <Compile Include="Entity\ActiveSensor.cs" />
+    <Compile Include="Commands\AirTemperatureHeaterCommand.cs" />
     <Compile Include="Entity\DaySchedule.cs" />
     <Compile Include="Entity\Device.cs" />
+    <Compile Include="Entity\ICommand.cs" />
+    <Compile Include="Entity\SensorSchedule.cs" />
     <Compile Include="Entity\EntityBase.cs" />
     <Compile Include="Entity\IDevice.cs" />
     <Compile Include="Entity\PassiveSensor.cs" />
@@ -85,5 +92,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

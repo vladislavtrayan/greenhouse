@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model.Commands;
 using Model.Entity;
 using static EnvironmentModulation.Environment;
 
@@ -12,6 +13,7 @@ namespace Model.Service
     {
         private readonly ITimer _timer;
         private readonly IDeviceFactory _deviceFactory;
+        private readonly ICommandFactory _commandFactory;
         private int _numberOfTicks = 0;
         private int _item_counter = 0;
 
@@ -30,19 +32,14 @@ namespace Model.Service
         public List<PassiveSensor> PassiveSensors { get; set; } = new List<PassiveSensor>();
         public List<ActiveSensor> ActiveSensors { get; set; } = new List<ActiveSensor>();
 
-        public MainFormService(ITimer timer, IRepository<UIElement> repository,IDeviceFactory deviceFactory)
+        public MainFormService(ITimer timer, IRepository<UIElement> repository,IDeviceFactory deviceFactory,ICommandFactory commandFactory)
         {
             _deviceFactory = deviceFactory;
+            _commandFactory = commandFactory;
             _timer = timer;
             _timer.Interval = 5;
             _timer.Tick += TimerTick;
             _timer.Start();
-
-            UIElement uIElement = new UIElement("Обогреватель",DeviceType.Device,Area.AirTemperature,@"C:\Users\vladi\OneDrive\Изображения\heater.png", 10, 10);
-            uIElement.CurrentState = "active";
-            UIElement uIElement1 = new UIElement("какая то дичь", DeviceType.PasssiveSensor,Area.WaterTemperature, @"C:\Users\vladi\OneDrive\Изображения\tempBitmap.png", 100, 200);
-            repository.Add(uIElement);
-            repository.Add(uIElement1);
 
             //UIElements = new List<UIElement>();
 
@@ -52,8 +49,11 @@ namespace Model.Service
         {
             RedrawAllElements();
             _numberOfTicks++;
-            if(IsCycleStarted)
+            if (IsCycleStarted)
+            {
                 RecalculateTime();
+                ControlSystem();
+            }
         }
 
         public void RemoveElement(int elementId)
@@ -70,10 +70,29 @@ namespace Model.Service
             uIElement.Id = _item_counter;
             UIElements.Add(uIElement);
             IDevice device = _deviceFactory.CreateDevice(uIElement.DeviceType,_item_counter);
+            device.Position = uIElement.Position;
             switch (uIElement.DeviceType)
             {
                 case DeviceType.Device:
-                    Devices.Add(device as Device);
+                    Device temp_device = (Device)device; 
+                    switch(uIElement.Area)
+                    {
+                        case Area.AirTemperature:
+                            temp_device.Command = _commandFactory.CreateAirTemperatureHeaterCommand();
+                            break;
+                        case Area.WaterTemperature:
+                            temp_device.Command = _commandFactory.CreateWaterTemperatureHeaterCommand();
+                            break;
+                        case Area.Nutrient:
+                            temp_device.Command = _commandFactory.CreateNutrientRegulatorCommand();
+                            break;
+                        case Area.Acid:
+                            temp_device.Command = _commandFactory.CreateAcidRegulatorCommand();
+                            break;
+                        default:
+                            throw new NotImplementedException();
+                    }
+                    Devices.Add(temp_device);
                     break;
                 case DeviceType.ActiveSensor:
                     ActiveSensors.Add(device as ActiveSensor);
@@ -90,13 +109,24 @@ namespace Model.Service
         public void MoveElement(int xPos, int yPos)
         {
             foreach (var element in UIElements)
+            {
                 if (Math.Abs(element.Position.x - xPos) < 20 && Math.Abs(element.Position.y - yPos) < 20)
                 {
                     MouseDraggUIElement.Invoke();
                     element.Position.x = xPos;
                     element.Position.y = yPos;
+
+                    foreach (var device in Devices)
+                        if (device.Id == element.Id)
+                            device.Position = element.Position;
+                    foreach (var device in PassiveSensors)
+                        if (device.Id == element.Id)
+                            device.Position = element.Position;
                 }
-                else { MouseIsNotDraggingUIElement.Invoke(); }
+                else {
+                    MouseIsNotDraggingUIElement.Invoke(); 
+                }
+            }
         }
 
         private void RecalculateTime()
@@ -110,9 +140,42 @@ namespace Model.Service
             }
         }
 
-        public void AddDevice(IDevice device)
+        private void ControlSystem()
         {
+            DaySchedule currentDaySchedule = GrowingPlant.GrowingPlan[CurrentDay];
+            foreach(var sensor in PassiveSensors)
+            {
+                var sensorShcedule = currentDaySchedule[sensor.Area];
+                var UISensor = UIElements.Where(e => e.Id == sensor.Id).FirstOrDefault();
+                UISensor.CurrentState = sensor.GetData().ToString();
+                if(Math.Abs(sensor.GetData() - sensorShcedule.OptimalValue) > sensorShcedule.MaxDeviation)
+                {
+                    foreach (var device in Devices)
+                        if (device.Area == sensor.Area)
+                        {
+                            device.TurnOn(sensorShcedule.OptimalValue);
+                            UIElements.Where(e => e.Id == device.Id).ToList().ForEach(e => e.CurrentState = "Active");
+                        }
+                }
+                else
+                {
+                    foreach (var device in Devices)
+                        if (device.Area == sensor.Area)
+                        {
+                            device.TurnOff();
+                            UIElements.Where(e => e.Id == device.Id).ToList().ForEach(e => e.CurrentState = "Off");
+                        }
+                }
+            }
 
+        }
+
+        public void UpdateUISensorsInformation()
+        {
+            foreach (var passiveSensor in PassiveSensors)
+                UIElements.Where(e => e.Id == passiveSensor.Id).FirstOrDefault().CurrentState = passiveSensor.GetData().ToString();
+
+            // TODO later implement Active sensors
         }
     }
 }

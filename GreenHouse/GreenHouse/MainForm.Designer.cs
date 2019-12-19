@@ -45,7 +45,6 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(539, 23);
             this.progressBar1.TabIndex = 0;
-            this.progressBar1.Value = 25;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // button1
@@ -104,9 +103,9 @@
             this.label2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label2.Location = new System.Drawing.Point(309, 506);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 17);
+            this.label2.Size = new System.Drawing.Size(28, 17);
             this.label2.TabIndex = 8;
-            this.label2.Text = "15%";
+            this.label2.Text = "0%";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // MainForm

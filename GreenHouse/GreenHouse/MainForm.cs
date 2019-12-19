@@ -167,5 +167,11 @@ namespace GreenHouse
         {
             label1.Text = $"Текущий день цикла {day} ,текущее время {time.Hours} часов {time.Minutes} минут .";
         }
+
+        public void UpdateProgressBar(int percent)
+        {
+            progressBar1.Value = percent;
+            label2.Text = $"{percent}%";
+        }
     }
 }
